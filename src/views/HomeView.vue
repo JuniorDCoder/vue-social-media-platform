@@ -1,18 +1,63 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="flex flex-col h-screen">
+    <Header />
+    <div class="flex flex-row flex-grow">
+      <SideBar />
+      <Post />
+      <div class="flex flex-col mt-32">
+        <RecentsModal filter="Based on Your Communities"/>
+        <RecentsModal filter="People You May Know" :peopleYouMayKnow="peopleYouMayKnow"/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Post from "@/components/Post.vue";
+import SideBar from "@/components/SideBar.vue";
+import Header from "@/components/Header.vue";
+import RecentsModal from "@/components/RecentsModal.vue";
 
 export default {
   name: "HomeView",
   components: {
-    HelloWorld,
+    SideBar,
+    Header,
+    Post,
+    RecentsModal,
+  },
+  data() {
+    return {
+      filter: "Based on Your Communities",
+      peopleYouMayKnow: [
+        {
+          name: "Miles Morales",
+          user: require("@/assets/img/user.png"),
+          action: "Follow",
+          role: "DevOps Engineer",
+        },
+        {
+          name: "Peter Parker",
+          user: require("@/assets/img/user.png"),
+          action: "Follow",
+          role: "IT Manager",
+        },
+        {
+          name: "GwenStacy",
+          user: require("@/assets/img/user.png"),
+          action: "Follow",
+          role: "State Registered Nurse",
+        },
+        {
+          name: "Miles Morales",
+          user: require("@/assets/img/user.png"),
+          action: "Follow",
+          role: "Penetration Tester",
+        },
+        
+      ]
+    };
   },
 };
 </script>

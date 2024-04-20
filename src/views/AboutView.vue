@@ -1,5 +1,19 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="flex flex-col h-screen">
+    <Header />
+    <div class="flex flex-row flex-grow">
+      <SideBar />
+    </div>
   </div>
 </template>
+
+<script>
+import SideBar from '@/components/SideBar.vue'
+import Header from '@/components/Header.vue'
+export default{
+  components: {
+      SideBar,
+      Header
+  }
+}
+</script>
